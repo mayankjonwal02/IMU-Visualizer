@@ -36,9 +36,12 @@ wss.on('connection', (ws) => {
 });
 
 // ...existing code...
+app.use(express.static(path.join(__dirname, 'static')));
+
 app.get('/cube', (req, res) => {
   res.sendFile(path.join(__dirname, 'static', 'index.html'));
 });
+
 // ...existing code...
 
 // ----- 4. Start server -----
@@ -47,6 +50,7 @@ server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on http://0.0.0.0:${PORT}`);
   console.log(`Test endpoint: http://192.168.137.1:${PORT}/test`);
 });
+
 
 
 
